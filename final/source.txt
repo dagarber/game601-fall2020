@@ -1,0 +1,1291 @@
+"Barrett's Treasure Hunt" by David Garber
+
+The story description is "The story of an intrepid treasure hunter who roamed far and wide in search of the one, greatest treasure of all."
+
+The story creation year is 2020.
+
+Release along with the "Quixe" interpreter.
+
+Release along with cover art.
+
+Release along with the private source text.
+
+Include Rideable Vehicles by Graham Nelson.
+
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[Level 1 - Growing Up]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+
+Chapter 1 - Growing Up
+
+[Camden] [------------------------------------------------------]
+
+Camden is a room. "[if unvisited]Hello, Barrett! Today is an exciting day - the annual ping-pong tournament! [end if]You are standing in the driveway with your brothers, John and Mark. There is a ping-pong table setup.
+
+The door to the house is open nearby.
+
+The street in front of the house runs from east to west."
+
+A ping-pong table is in the Camden. On it is a ping-pong paddle. 
+
+John is a person in Camden. Mark is a person in Camden.
+
+After taking the paddle:
+	say "John says, 'Would you like to play a game?'"
+	
+Understand "play", "yes", "play ping-pong" as playing.
+	
+Playing is an action applying to nothing.
+
+Check playing:
+	if the player is not holding the paddle:
+		say "You don't have anything to play with!" instead.
+		
+Check playing:
+	if the player is not in the Camden:
+		say "You can't do that here." instead.
+
+Carry out playing:
+	say "You and John play an intense match, with much shouting and chasing of balls (nearly) into the street. Mark patiently waits his turn... The score reaches 20-19, match point! You can serve for the game using a Western or Eastern grip, which do you choose?"
+	
+Understand "Eastern", "serve Eastern", "serve Eastern style" as winning.
+
+Winning is an action applying to nothing.
+
+Check winning:
+	if the player is not in the Camden:
+		do nothing instead.
+		
+The golden paddle is an object.
+
+Game score is a kind of value. The game scores are ad-in, deuce, and ad-out.
+
+The ping-pong table has a game score. The ping-pong table is ad-in.
+
+Carry out winning:
+	if the ping-pong table is ad-in, say "Your expertly placed serve just nicks the outer back edge of the table, an ace! You have won the annual ping-pong tournament. Your prize is a golden paddle. Check your inventory to make sure that you have it!";
+		now the player has the golden paddle;
+		now John has the ping-pong paddle;
+	if the ping-pong table is deuce, say "Nice serve! The score is back to Ad-In."; Now the game score of the ping-pong table is ad-in.
+	
+Understand "Western", "serve Western", "serve Western style" as losing.
+
+Losing is an action applying to nothing.
+
+Check losing:
+	if the player is not in the Camden:
+		do nothing instead.
+		
+Carry out losing:
+	say "John is familiar with your usual style of play. He slides over to his forehand side and slaps back a hard return. The score is now deuce."; Now the ping-pong table is deuce.
+	
+Test ping-pong with "go inside / go outside / take paddle / play / eastern / inventory".
+	
+[House] [------------------------------------------------------]
+
+The House is inside from the Camden. "[if unvisited]You are inside the house. You can smell the dinner that your mom is preparing... but its not quite ready yet. [else]You are inside the house. [end if][if player does not have the golden paddle]Don't you want to go back outside and play some ping-pong?[end if] [if player has the hammer]
+
+You hear a hammering sound coming from the woodshed out the backdoor to the north.[end if][if gramps has the hammer]The woodshed is through the backdoor to the north.[end if][if player has the milk] Dinner is ready now! You can hear Granny M setting the table in the dining room to the east. She calls to you, 'Can you bring the milk in with you, dear?'[end if][if Granny M has the milk] The dining room is to the east.[end if]"
+
+Before going north:
+	if the player is in the House:
+		if the player does not have the hammer:
+			if gramps does not have the hammer:
+				if the hammer is not in the Woodshed:
+					say "You can't go that way." instead.
+					
+Before going east:
+	if the player is in the House:
+		if the player does not have the milk:
+			if Granny M does not have the milk:
+				if the milk is not in the dining room:
+					say "You can't go that way." instead.
+					
+After going east:
+	if the player is in the Dining Room:
+		if the player has the milk:
+			now Granny M has the milk;
+	continue the action.
+
+Camden is outside from the house.
+
+[Dining Room] [------------------------------------------------------]
+
+The Dining Room is east from the House. "[if unvisited]The table is set for 5 (you, John, Mark, Gramps, Granny M). Everyone quickly gathers around the table to eat! Gramps says grace, 'Our Father, thank you for this daily bread...'
+
+After eating, you're ready to head up to your room! But before you can leave the table, Granny M asks for a volunteer to help do the dishes. She heads off to the kitchen (to the east).[end if]The table is cleared from dinner. The kitchen is to the east, the rest of the house is to the west."
+
+Camden is outside from the dining room.
+
+[Kitchen] [------------------------------------------------------]
+
+The Kitchen is east from the Dining Room. "Granny M has started washing the dishes in the left side of the sink, leaving a space for you over on the right to dry them."
+
+Dry dishes is an action applying to nothing.
+
+Understand "dry dishes", "do dishes", "start doing dishes", "dishes" as dry dishes.
+
+Check dry dishes:
+	if the player is not in the kitchen:
+		do nothing.
+		
+Carry out dry dishes:
+	say "You hop up on the stool and begin the task (somewhat reluctantly).
+
+'Barrett, you've done such a good job today - earning money at all those jobs!
+
+That reminds me, I was just speaking with the Guidance Counselor the other day. If you go to the end of the road (to the east), you can probably still catch her before she leaves for the day. I know she wanted to speak with you about potential majors in college, why don't you run over there and take this note with you?' Granny M gives you a note.";
+	now the player has the note.
+
+Granny M is a woman in the Kitchen.
+
+The note is an object.
+
+Camden is outside from the kitchen.
+
+[Woodshed] [------------------------------------------------------]
+
+The Woodshed is north of the House. "[if unvisited]You exit the house out of the backdoor to the north, and go into the woodshed in the backyard.[else]You are in the woodshed in the backyard of the house.[end if] [if gramps does not have the hammer]Gramps is here, hammering away at some nails! He turns and gives you a quick look, 'can you give me a hand with that last nail?'[end if]".
+
+Gramps is a man in the woodshed.
+
+Hammering is an action applying to nothing.
+
+Understand "hammer", "hammer nail" as hammering.
+
+Check hammering:
+	if the player is not in the Woodshed:
+		do nothing instead.
+	
+Carry out hammering:
+	say "With the hammer you brought from the Dupont Factory, you proudly hammer in the last nail. 'Good work!', Gramps responds. 'Can you also run over to the corner store and buy some milk for dinner? I forgot to pick it up when I was out earlier.'
+	
+	By the way, you can use 'XYZZY' to get back here anytime!";
+	now gramps has the hammer.
+
+Teleporting is an action applying to nothing.
+
+Understand "XYZZY" as teleporting.
+
+Check teleporting:
+	if gramps has the hammer:
+		now the player is in the Woodshed;
+	if gramps does not have the hammer:
+		if the location is the bank:
+			now the player is in the Woodshed;
+		else:
+			say "That word doesn't work here."
+
+The House is inside from the Woodshed.
+
+Test hammer with "south / west / west / inside / push / outside / east / east/ north / inside / north / hammer / inside / outside".
+
+[Street] [------------------------------------------------------]
+
+Street is west of Camden. Street is east of Camden. "You are standing on the sidewalk by the street. Cars whiz by. [if unvisited]A boy on bike tosses a newspaper that hits you and then lands on the sidewalk. He pedals off across the street to the South and you think about following him, although there are a lot of cars on the road today. [else]You can cross the street to the south, or follow it east or west.[end if]
+
+Your house is north." Camden is north of Street.
+
+The player has a number called street crossings. The street crossings of the player is 0.
+
+Before going south:
+	if the player is in the Street:
+		if the player is not on the bike:
+			now the street crossings of the player is the street crossings of the player + 1.
+
+[Other side of street] [------------------------------------------------------]
+
+A room called Other side of street is south of Street. "[if street crossings of the player is greater than 0]You manage to run across the street without getting hit by a car - whew! [end if]Up ahead you see a Newspaper office, with a 'Now Hiring' sign in the window. [if player is not on the bike]A bike is leaned against the wall, probably belonging to the kid who hit you with the newspaper earlier.[end if] The street runs east-west, and you can cross back to the other side by going north."
+
+The Dupont Factory is west of the room called Other side of street.
+
+The Corner Store is east of the room called Other side of street.
+
+Before doing anything:
+	if the player is in Other side of street:
+		if the street crossings of the player is greater than 0:
+			now the street crossings of the player is the street crossings of the player - 1.
+
+A bike is a rideable vehicle in the Other side of street.
+
+Instead of going north:
+	if the player has the newspaper stack:
+		instead say "The newspaper stack is too heavy to go any further.";
+	if the player does not have the newspaper stack:
+		continue the action.
+		
+Instead of going east:
+	if the player has the newspaper stack:
+		instead say "The newspaper stack is too heavy to go any further.";
+	if the player does not have the newspaper stack:
+		continue the action.
+		
+Instead of going south:
+	if the player has the newspaper stack:
+		instead say "The newspaper stack is too heavy to go any further.";
+	if the player does not have the newspaper stack:
+		continue the action.
+		
+Instead of going west:
+	if the player has the newspaper stack:
+		instead say "The newspaper stack is too heavy to go any further.";
+	if the player does not have the newspaper stack:
+		continue the action.
+
+Instead of going inside:
+	if the player is on the bike:
+		instead say "Bikes aren't allowed inside.";
+	if the player is not on the bike:
+		continue the action.
+
+Understand "news", "papers" as the newspaper stack.
+		
+Test news with "south / south / inside / take newspapers / outside / north / put news on bike / get on bike / inside / north / west / get off bike / take news / give news / get on bike / east / south / get off bike / inside / outside / north / north."
+
+[Newspaper Office] [------------------------------------------------------]
+
+The Newspaper Office is inside from the room called Other side of street. "You enter the Newspaper Office. A manager is sitting at a desk, smoking a cigar. Around the room, piles of newspapers are sitting, neatly stacked, waiting for the morning delivery.
+
+[if the worker does not have the newspaper stack]The man looks up and says, 'Are you the new paperboy? We're a bit short today. If you can deliver some of these papers over to the Dupont Factory, I'll pay you $0.50.'[end if][if the worker has the newspaper stack]The manager looks up and says, 'Great job! Here's your $0.50.'
+
+In addition to the 50 cent piece, you have earned the golden newspaper! Check your inventory to make sure that you have it.[end if]"
+
+After going inside:
+	if the worker has the newspaper stack:
+		if the player is in the Newspaper Office:
+			now the player has the 50 cent piece;
+			now the player has the golden newspaper;
+			continue the action;
+	continue the action.
+
+The Manager is a man in the Newspaper Office. Newspaper Stack is an object in the Newspaper Office.
+
+[Weight is a kind of value. The weights are light and heavy.
+
+The Newspaper Stack has a weight. The Newspaper Stack is heavy.]
+
+The golden newspaper is an object.
+
+The 50 cent piece is an object.
+
+[Dupont Factory] [------------------------------------------------------]
+
+Dupont Factory is west of Street. "You are at the Dupont Factory. Your dad works here, spending long days in the factory building and coming home a bit grimy from all of the hard work. His hands are calloused from working in the factory which serves him well when working with the tools in the shed at home. You want to grow-up to be just like him.[if the worker does not have the newspaper stack]
+
+A worker is sitting by the factory entrance. He asks you, 'Any sign of today's paper yet?'[end if]
+
+The road continues on towards the west, curving out of sight."
+
+Street is east of Dupont Factory.
+
+A Worker is a man in the Dupont Factory. "[if the worker has the newspaper stack]The worker is reading a newspaper.[else]The worker is looking intently at you, expecting you to give him something.[end if]"
+
+Understand "give", "give papers to worker", "give news", "give news to worker", "give newspapers", "give newspapers to worker", "give papers" as giving.
+
+Giving is an action applying to nothing.
+
+[Check giving:
+	if the player is on the bike:
+		say "You'll have to get off the bike first." instead;
+	if the player is not in the Dupont Factory:
+		say "You can't do that here." instead;
+	if the player does not have the Newspaper Stack:
+		say "You'll have to pick up some newspapers first!" instead.]
+
+The hammer is an object.
+			
+[Carry out giving:
+	now the worker has the newspaper stack;
+	now the player has the hammer;
+	say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle."]
+	
+Carry out giving:
+	if the player is on the bike in the Dupont Factory:
+		if the newspaper stack is in the Dupont Factory:
+			now the worker has the newspaper stack;
+			now the player has the hammer;
+			say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle.";
+			stop the action;
+		if the newspaper stack is on the bike in the Dupont Factory:
+			now the worker has the newspaper stack;
+			now the player has the hammer;
+			say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle.";
+			stop the action;
+		if the player has the newspaper stack:
+			now the worker has the newspaper stack;
+			now the player has the hammer;
+			say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle.";
+			stop the action;
+		else:
+			say "You don't have anything to give.";
+			stop the action;
+	if the player is in the Dupont Factory:
+		if the newspaper stack is in the Dupont Factory:
+			now the worker has the newspaper stack;
+			now the player has the hammer;
+			say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle.";
+			stop the action;
+		if the newspaper stack is on the bike in the Dupont Factory:
+			now the worker has the newspaper stack;
+			now the player has the hammer;
+			say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle.";
+			stop the action;
+		if the player has the newspaper stack:
+			now the worker has the newspaper stack;
+			now the player has the hammer;
+			say "The worker says, 'Why thank you!' We've been waiting for today's paper. By the way, your dad wanted you to have this.' The worker hands you a hammer with a weathered, wooden handle.";
+			stop the action;
+		else:
+			say "You don't have anything to give.";
+			stop the action;
+	say "You can't do that here."
+
+[Papermill] [------------------------------------------------------]
+
+Papermill is west of Dupont Factory. "[if unvisited]As you continue along the street to the west, you come to the Papermill at the end of the road.[else]You are at the Papermill at the western end of the road.[end if] The sound from the circular saw is deafening! [if the foreman has the one dollar bill]A foreman comes up to you and asks, 'Son, how you would like to earn some money today?' You are intrigued. The man disappears back inside the mill.[end if]"
+
+[Mill] [------------------------------------------------------]
+
+Mill is inside from Papermill. "A giant spinning blade is cutting up the logs as they are fed through along a conveyer. [if the foreman has the one dollar bill]The foreman is wrestling with a log on the conveyer, attempting to get it aligned correctly. 'Can you just give it a quick push over on the left side?', he asks you.[end if]"
+
+The foreman is a man in the Mill.
+
+The log is a fixed in place object in the Mill.
+
+Push log is an action applying to nothing.
+
+Understand "push", "push log", "help push log" as push log.
+
+Check push log:
+	if the player is not in the Mill:
+		say "You can't do that here." instead;
+	if the player has the one dollar bill:
+		do nothing instead.
+
+A one dollar bill is an object. The foreman is holding the one dollar bill.
+
+Carry out push log:
+	if the foreman has the one dollar bill:
+		now the player has the one dollar bill;
+		now the foreman has the log;
+		say "'Quick, put these on!' The foreman hands you a pair of safety glasses. You give the log a push, and the conveyer belts pulls it into the giant circular saw, spraying splinters everywhere.
+		
+		'Thanks for your help!' the foreman says. 'Here's a dollar bill for your trouble.' He gives you a one dollar bill.";
+		stop the action;
+	if the foreman does not have the one dollar bill:
+		do nothing instead.
+
+[Corner Store] [------------------------------------------------------]
+
+Corner Store is east of Street. "[if unvisited]You continue along the Street to the east.[else]The road runs from east to west.[end if] A corner store is here."
+
+Street is west of Corner Store.
+
+[Store] [------------------------------------------------------]
+
+A room called Store is inside from the room called Corner Store.
+
+The milk is an object in the Store.
+
+The storekeeper is a man in the Store.
+
+Paying is an action applying to nothing.
+
+Understand "buy", "buy milk", "pay", "pay for the milk", "pay the storekeeper", "give money", "give dollar", "give one dollar", "give 50 cent piece" as paying.
+
+Carry out paying:
+	if the player is in the store:
+		if the player has the one dollar bill:
+			if the player has the 50 cent piece:
+				now the storekeeper has the dollar bill;
+				now the storekeeper has the 50 cent piece;
+				now the player has the milk;
+				say "The storekeeper says, 'The milk costs $1.50.' You hand him the money you earned delivering papers and working in the papermill, and he hands you the milk.";
+				stop the action;
+	if the player is not in the store:
+		do nothing;
+		stop the action;
+	say "The storekeeper says, 'The milk costs $1.50.'"
+
+Instead of taking the milk:
+	if the storekeeper does not have the one dollar bill:
+		say "The storekeeper says, 'The milk costs $1.50.'";
+	if the storekeeper has the dollar bill:
+		continue the action.
+	
+Test milk with "south / east / inside / buy milk / outside / west / north / inside / east / east / dishes / outside".
+
+[Admissions Office] [------------------------------------------------------]
+
+Admissions Office is east of Corner Store. "As you go further east along the street, you see the Admissions Office. This is where the school guidance counselors can help with your college application. The street dead-ends up ahead."
+
+[Office] [------------------------------------------------------]
+
+A room called Office is inside from the room called Admissions Office. "[if player does not have the note]The guidance counselor looks up, 'Sorry, dear, we're so busy right now, can you come back another time?'[end if][if player has the note]You walk in and hand the guidance counselor the note. 'I see... well, Barrett, it looks like its time for you to head off to college! Have you thought about a major yet? Biology, computer science, physics? Does one of those sound like something you'd be interested in?'[end if][if the guidance counselor has the note]
+
+She looks up one more time - 'Oh my, I barely recognized you! How do you like Clemson?'
+
+(By the way, don't forget the magic word, 'physics.')[end if]"
+
+Biologing is an action applying to nothing.
+
+Understand "biology", "computer science", "science" as biologing.
+
+Carry out biologing:
+	say "'Your mom's note suggested that might not be your strong suit.'"
+
+Physicsing is an action applying to nothing.
+
+Understand "physics" as physicsing.
+
+Carry out physicsing:
+	if the player has the note:
+		if the player is in the office:
+			now the guidance counselor has the note;
+			say "The guidance counselor says, 'That sounds like a great major to try! Let me help you with your application to Clemson. Oh, I see you've already gotten it started - in that case, off you go! I'm going to put in a good word with the admissions office for you. And one more thing, your mom wanted you to have this.'
+			
+			She hands you a golden dish. (check your inventory to make sure that you have it!)
+			
+			Four months pass, and you are admitted to Clemson!";
+			now the player has the golden dish;
+			now the player is in the Clemson;
+			stop the action;
+	if the guidance counselor has the note:
+		now the player is in the Clemson.
+
+A guidance counselor is a woman in the office.
+
+The golden dish is an object.
+
+Test admissions with "south / east / east / inside / biology / computer science / physics".
+
+Test all with "test ping-pong / test news / test hammer / test milk / test admissions".
+
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[Level 2 - College]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+
+Chapter 2 - College
+
+[Clemson] [------------------------------------------------------]
+
+Clemson is a room. "You are at Clemson! The campus stretches around you in all directions. The Physics building is off to the north and the Student Union is to the south. [if walter does not have the codebook]For the first time, you notice the library which is off to the east![end if]"
+
+[Physics Building] [------------------------------------------------------]
+
+Physics Building is north of Clemson. "You walk into the lecture hall. A class is in session, and the Professor is discussing the topic of gravity.[if the professor has the textbook]
+
+'Newton thought that all objects were attracted to one another, and thus smaller masses (like you and me) would be pulled towards larger masses (like the earth). Einstein, in his special theory of relativity, postulated that there is 'priviledged' frame of reference and that the speed of light is a universal constant. The outworking of those two concepts was the theory of general relavitiy and the concept of space-time as a fabric that can be warped by very massive objects. The observation of gravitational waves in 2016 was yet another proof of Einstein's theory that explains how gravity really works.
+
+Any questions?'[end if]
+
+The rest of campus is back out of the building to the south."
+
+Asking is an action applying to nothing.
+
+Understand "ask question", "ask professor", "ask" as asking.
+
+Check asking:
+	if the player is not in the Physics Building:
+		do nothing instead;
+	if the professor does not have the textbook:
+		say "You've already asked that question!" instead.
+	
+Carry out asking:
+	say "The professor turns to look at you. 'A freshman interested in physics! Son, you're off to a great start. Now read the first 400 pages and then come back here.' He hands you a textbook.";
+	now the player has the textbook.
+
+A professor is a man in the Physics Building.
+
+The textbook is an object. The professor is holding the textbook.
+
+[Student Union] [------------------------------------------------------]
+
+Student Union is south of Clemson. "You enter the student union. There are a bunch of tables here with different groups of students eating or studying. One of them comes up to you, 'We're about to have our campus ministry meeting - would you like to join?' He heads off to a nearby meeting room (inside).
+
+The rest of campus is back out the front doors to the north."
+
+[Campus Ministry] [------------------------------------------------------]
+
+Campus Ministry is inside from the Student Union. "Inside the meeting room is a group of students, clapping and singing a song. It sounds like it might be a game with duck noises, followed by another song, 'Father Abraham.' You find it amusing although you're not quite sure about the songs. A preacher gets up and gives a message, and there are snacks afterward. [if Jean is red]At the snack table you bump into a girl named Jean. She seems like she might be waiting for you to ask something...[end if][if Jean is green]You and Jean hang out together at the snack table. You brought some chili-cheese-aplenties with you from the Beacon to share with everyone![end if]".
+
+Jean is a woman in the Campus Ministry.
+
+Dating is an action applying to nothing.
+
+Understand "ask Jean on a date", "date", "ask for a date", "ask about dating", "ask Jean to go on a date", "do you want to go on a date" as dating.
+
+Check dating:
+	if the player is not in the Campus Ministry:
+		do nothing instead;
+		stop the action;
+	if Walter does not have the codebook:
+		say "You're already dating!" instead.
+		
+Carry out dating:
+	say "Somewhat awkwardly, you ask Jean on a date.
+	
+	Jean says, 'Why I'd love to go on a date! There's this great burger place over in Spartanburg (my hometown) and it's only like an hour away. I'm heading there after this... would you like to try it?'";
+	now Jean is green;
+	now the player is in the Beacon.
+	
+Beaconing is an action applying to nothing.
+
+Understand "Beacon", "go to the Beacon", "eat Beacon", "eat at the Beacon", "eat burger", "eat fries" as beaconing.
+
+Check beaconing:
+	say "You should reallly get back to your studies, don't you think?" instead.
+	
+[The Beacon] [------------------------------------------------------]
+
+The Beacon is a room. "You are in The Beacon, a massive burger and fries restaurant. You order a 'chili-cheese-aplenty' based on the strong advice of the man shepherding customers through the ordering process. Afterward, you have a stomach ache.
+
+Jean says, 'Oh no! Let me see if my dad can come pick us up.'
+
+Walter swings by in his classic car and offers to give the two of you a lift back to campus."
+
+A Classic Car is a vehicle in the Beacon.
+
+Walter is a man in the classic car.
+
+The codebook is an object. Walter is holding the codebook.
+
+Every turn when the player is in the classic car:
+	say "You hop in the car, and Walter drives the two of you back to campus. Before you get out, he says to you, 'Take this book on coding. I heard you like Physics - it might come in handy in the future!' He hands you a Fortan manual (codebook).";
+	now the player has the codebook;
+	now the player is in the Clemson;
+	now Jean is in the Clemson.
+	
+Every turn when Jean is green:
+	now Jean is in the location.
+	
+Color is a kind of value. The colors are red and green.
+
+Jean has a color. Jean is red.
+
+[Library] [------------------------------------------------------]
+
+Library is east of Clemson. "You are surrounded by shelves of books in the library. [if the librarian does not have the codebook]The librarian says to you, 'Hello, young man! Did you bring any books with you to return?'[end if][if the librarian has the codebook]The librarian says to you, 'Good to see you again!' And then in a hoarse whisper, 'Feel free to use the secret study room inside!'[end if]
+
+The rest of campus is back out of the building to the west."
+
+The Librarian is a woman in the library.
+
+The golden tiger paw is an object. The Librarian is holding the golden tiger paw.
+
+Returning is an action applying to nothing.
+
+Understand "hand codebook to the librarian", "hand book to the librarian", "hand textbook to the librarian", "hand book", "give book", "give textbook", "hand textbook", "give codebook", "hand codebook", "give codebook to librarian", "give book to librarian", "give textbook to librarian", "give books to librarian", "give books", "hand books", "hand books to librarian" as returning.
+
+Carry out returning:
+	if the player is in the library:
+		if the player has the textbook:
+			if the player has the codebook:
+				now the librarian has the codebook;
+				now the librarian has the textbook;
+				now the player has the golden tiger paw;
+				say "You give the librarian both the codebook and the physics textbook.
+				
+				'Why thank you for returning these! Not everyone brings back the books they borrow. There's actually a place I'd like you to see, it might help you along your way.'
+				
+				She hands you a golden tiger paw (check your inventory to make sure that you have it!) and shows you a secret room in the back part of the library building. 'If you have the golden tiger paw with you, you'll be able to get into this study room.'";
+				now the player is in the secret study room;
+				stop the action;
+	if the player is not in the library:
+		do nothing;
+		stop the action;
+	say "It looks like you are one book short.'"
+
+Before going east:
+	if the player is in the Clemson:
+		if Walter has the codebook:
+			say "You can't go that way." instead.
+
+Before going inside:
+	if the player is in the Library:
+		if the player does not have the golden tiger paw:
+			say "You can't go that way without the golden tiger paw." instead.
+			
+[Secret Study Room] [------------------------------------------------------]
+
+Secret study room is inside from the library. "This is the secret room in the library where you can study and get all A's! Because you found your way here, you are able to graduate with honors in Physics, get a job, get married to Jean, and move to Washington DC.
+
+By the way, you can always come back here with the secret word 'ABCCB', but new adventures await you up north!
+
+(The library is outside from the secret study room, and Washington DC is to the north. Time to go north.)"
+
+Understand "ABCCB" as saying abccb.
+
+Saying abccb is an action applying to nothing.
+
+Check saying abccb:
+	if the librarian has the codebook:
+		now the player is in the secret study room;
+	if the librarian does not have the codebook:
+		say "That word doesn't work here."
+
+Test clemson with "test all / south / inside / date / get in car / east / west / north / ask question / south / east / give textbook / outside / west / east / inside / north / south / abccb".
+
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[Level 3 - Marrired / Full-time job]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+
+Chapter 3 - Married and Working
+
+[Washington DC] [------------------------------------------------------]
+
+Washington DC is north of Secret study room. South of Washington DC is nowhere. "You are in the nation's capital! Standing by the Tidal Basin, you can see the Lincoln Memorial, Washington Monument, and even the Thomas Jefferson Memorial. Now that you are married, you and Jean enjoy coming here for the scenery.[if the player is not in the small car]
+
+Your car is parked nearby. {note: you can always recall the car by saying 'get car'}[end if][if the player is wearing the nightvision goggles]
+
+Since you're wearing the night vision goggles, you notice a tunnel entrance that you'd never seen before, just under the steps of the Lincoln Memorial...[end if][if the golden coins are green] but the door to the tunnel appears to be locked shut.[end if]".
+
+A small car is a vehicle in the Washington DC.
+
+Every turn when the player is in the small car:
+	now the small car is high;
+	if the small car is in the Washington DC:
+		say "Route 66 heads west out of the District. There are some signs for George Mason University in that direction.";
+	if the small car is in the George Mason:
+		say "You can continue around the 495 capital beltway to the north or south.";
+	if the small car is in the Hospital:
+		say "You can continue around the Beltway to the east or west.";
+	if the small car is in the Government Lab:
+		say "You can continue around the Beltway to the east or west.".
+		
+After exiting:
+	now the small car is low;
+	continue the action.
+		
+Fuel is a kind of value. The fuels are low and high.
+
+The small car has a fuel. The small car is low.
+
+Instead of going north:
+	if the small car is low:
+		if the player is in the Washington DC:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the George Mason:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Hospital:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Government Lab:
+			instead say "You can't get anywhere without a car around here.";
+		else:
+			continue the action;
+	if the small car is high:
+		continue the action.
+		
+Instead of going south:
+	if the small car is low:
+		if the player is in the Washington DC:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the George Mason:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Hospital:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Government Lab:
+			instead say "You can't get anywhere without a car around here.";
+		else:
+			continue the action;
+	if the small car is high:
+		continue the action.
+		
+Instead of going east:
+	if the small car is low:
+		if the player is in the Washington DC:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the George Mason:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Hospital:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Government Lab:
+			instead say "You can't get anywhere without a car around here.";
+		else:
+			continue the action;
+	if the small car is high:
+		continue the action.
+		
+Instead of going west:
+	if the small car is low:
+		if the player is in the Washington DC:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the George Mason:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Hospital:
+			instead say "You can't get anywhere without a car around here.";
+		if the player is in the Government Lab:
+			instead say "You can't get anywhere without a car around here.";
+		else:
+			continue the action;
+	if the small car is high:
+		continue the action.
+
+[Instead of going north:
+	if the player is in the Washington DC:
+		if the player is not in the small car:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the small car:
+			continue the action;
+	if the player is not in the Washington DC:
+		continue the action.
+		
+Instead of going south:
+	if the player is in the Washington DC:
+		if the player is not in the small car:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the small car:
+			continue the action;
+	if the player is not in the Washington DC:
+		continue the action.
+		
+Instead of going east:
+	if the player is in the Washington DC:
+		if the player is not in the small car:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the small car:
+			continue the action;
+	if the player is not in the Washington DC:
+		continue the action.
+		
+Instead of going west:
+	if the player is in the Washington DC:
+		if the player is not in the small car:
+			instead say "You've walked around the national mall for several hours... now you are tired of walking!";
+		if the player is in the small car:
+			continue the action;
+	if the player is not in the Washington DC:
+		continue the action.]
+
+Instead of going inside:
+	if the player is in the small car:
+		instead say "Cars aren't allowed inside.";
+	if the player is not in the small car:
+		continue the action.
+
+Instead of going inside:
+	if the player is in the Washington DC:
+		if the player is not wearing the nightvision goggles:
+			say "You can't go that way.";
+			stop the action;
+		if the golden coins are green:
+			say "The door is locked shut.";
+			stop the action;
+		else:
+			continue the action;
+	else:
+		continue the action.
+
+[Secret Tunnel] [------------------------------------------------------]
+		
+Secret Tunnel is inside from Washington DC. "The secret tunnel leads deep underground, presumably an old bunker used for nuclear attack safety in WWII. [if the golden coins are red]At the very end of the tunnel, you see a pile of golden coins!!!! Could this be the treasure you've been looking for?[else]An alarm is sounding loudly, and the door to the secret tunnel is closed![end if]"
+
+Golden coins are a thing in the Secret Tunnel. The golden coins have a color. The golden coins are red.
+
+Instead of taking the golden coins:
+	say "You attempt to grab the coins which triggers some sort of alarm system. The entrance to the secret tunnel is closing! Hopefully you remember one of the magic words that you can use to escape?";
+	now the golden coins are green;
+	stop the action.
+	
+Instead of going outside:
+	if the player is in the Secret Tunnel:
+		if the golden coins are green:
+			say "The door to the secret tunnel is closed!";
+			stop the action;
+		else:
+			continue the action;
+	else:
+		continue the action.
+
+[George Mason] [------------------------------------------------------]
+
+George Mason is west of Washington DC. "The George Mason University campus is green with lots of trees - it reminds you of Clemson! [if unvisited]Jean is taking classes here to finish up her education degree.[end if]"
+
+George Mason is west of the Hospital. George Mason is west of the Government Lab. Washington DC is east of George Mason.
+
+[Hospital] [------------------------------------------------------]
+
+Hospital is north of George Mason. "[if unvisited]Several years pass... Jean finishes her education degree and then you welcome your first child, a girl! You name her Beth.[end if][if visited]You drive past the hospital where Beth was born.[end if]"
+
+Beth is a woman in the Hospital. Beth has a color. Beth is red.
+
+Every turn when the small car is in the Hospital:
+	now Beth is green.
+
+Every turn when Beth is green:
+	now Beth is in the location.
+	
+Hospital is east of Government Lab.
+
+Every turn when the player is wearing the nightvision goggles:
+	if the small car is in the hospital:
+		say "For some reason, since you're wearing the nightvision goggles, you realize that you can exit onto 95N from here.";
+	else:
+		continue the action.
+
+Instead of going north:		
+	if the small car is in the hospital:
+		if the player is not wearing the nightvision goggles:
+			say "You can't go that way.";
+			stop the action;
+		else:
+			now the nightvision goggles are in the Undisclosed Location;
+			continue the action;
+	else:
+		continue the action.
+
+[Government Lab] [------------------------------------------------------]
+
+Government Lab is south of George Mason. Government Lab is east of the Hospital. "Your physics degree got you a job at a super-secret, high-tech Government Laboratory. [if unvisited]Jean drops you off for work and you head inside. [end if]For some reason when you come back out, you can't remember anything...".
+
+Every turn when the player is in the Government Lab:
+	say "There appears to be some kind of undisclosed location inside of the laboratory...".
+
+[Undisclosed Location] [------------------------------------------------------]
+
+Undisclosed Location is inside from Government Lab. "[if unvisited]You head inside the laboratory. [end if]All kinds of high-tech equipment is littered around the room.[if the bannana is red] In one corner you see a Senior Scientist pouring liquid nitrogen from a large tank into a paper cup. He beckons you closer.
+
+'See this cup? Try putting the bannana inside and see what happens.'[end if]"
+
+The Senior Scientist is a man in the Undisclosed Location.
+
+A lab desk is in the undisclosed location. On the lab desk is a bannana.
+
+[The bannana is a thing on the lab desk in the undisclosed location.] The bannana has a color. The bannana is red.
+
+The liquid nitrogen cup is a fixed in place open container on the lab desk.
+
+Nightvision goggles are a wearable thing on the lab desk.
+
+Every turn when the bannana is in the liquid nitrogen cup:
+	if the bannana is red:
+		if the player is in the undisclosed location:
+			say "The bannana instantly freezes solid upon touching the liquid nitrogen in the cup.
+			
+			'Pretty cool, right?' says the Senior Scientist. 'Make sure not to dip your finger in there.'
+			
+			'I heard you're thinking of pursuing a new career path in ministry. Honestly I think it's the rigth fit for you... I'm not supposed to do this, but why don't you put on these night vision goggles? They might help you find what you're looking for {hint: up north}.'";
+			now the bannana is green;
+			now the player is wearing the nightvision goggles;
+	else:
+		continue the action.
+
+Instead of taking the nightvision goggles:
+	if the bannana is red:
+		say "Those don't belong to you." instead;
+	else:
+		continue the action.
+		
+Instead of wearing the nightvision goggles:
+	if the bannana is red:
+		say "Those don't belong to you." instead;
+	else:
+		continue the action.
+		
+Test lab with "test clemson / north / west / get in car / west / north / east / west / south / inside / exit / inside / take goggles / take bannana / put bannana in cup / inventory / look / outside / get in car / west / north / north".
+
+Test trap with "test clemson / north / west / get in car / west / north / east / west / south / inside / exit / inside / take goggles / take bannana / put bannana in cup / inventory / look / outside / get in car / west / east / exit / inside / take coins / outside".
+
+[Vehicle shortcuts] [------------------------------------------------------]
+
+Understand "get car" as saying car.
+
+Saying car is an action applying to nothing.
+
+Check saying car:
+	if the small car is in the location:
+		do nothing instead.
+		
+Carry out saying car:
+	say "Sending the small car to your location!";
+	now the small car is in the location.
+	
+Understand "get minivan" as saying minivan.
+
+Saying minivan is an action applying to nothing.
+
+Check saying minivan:
+	if the minivan is in the location:
+		do nothing instead.
+		
+Carry out saying minivan:
+	say "Sending the minivan to your location!";
+	now the minivan is in the location.
+
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[Level 4 - Ministry]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+
+Chapter 4 - Ministry
+
+[Ithica] [------------------------------------------------------]
+
+Ithica is north of the Hospital. South of Ithica is Rocksboro. "You decide to pursue a career in ministry and move to upstate New York. Around this same time, you welcome twin boys, Andrew and Paul!
+
+The landscape here is incredibly beautiful, with lots of colorful leaves each Fall. It is a bit cold in the winter though. Next stop, North Carolina! (go south)"
+
+Andrew is a man in the Ithica. Andrew has a color. Andrew is red.
+
+Every turn when the location is the Ithica:
+	now Andrew is green.
+
+Every turn when Andrew is green:
+	now Andrew is in the location.
+	
+Paul is a man in the Ithica. Paul has a color. Paul is red.
+
+Every turn when the location is the Ithica:
+	now Paul is green.
+
+Every turn when Paul is green:
+	now Paul is in the location.
+	
+[Rocksboro] [------------------------------------------------------]
+
+Rocksboro is south of Ithica. North of Rocksboro is Blodgett Mills. "You move to North Carolina - Rocksboro, to be precise. There's a pecan tree in the backyard and a big streambed nearby where the kids can play around in the sand and rocks.
+
+Also, you welcome yet another child, a boy named Adam.
+
+It's time to head back north again!"
+
+Adam is a man in the Rocksboro. Adam has a color. Adam is red.
+
+Every turn when the location is the Rocksboro:
+	now Adam is green.
+
+Every turn when Adam is green:
+	now Adam is in the location.
+	
+Minivan is a vehicle in the Rocksboro.
+
+Instead of going north:
+	if the location is the Rocksboro:
+		if the player is not in a vehicle:
+			instead say "You'll need a vehicle first!";
+		if the player is in the small car:
+			instead say "That car is far too small to fit this growing family.";
+		if the player is in the minivan:
+			say "Good choice of vehicle! {note: you can always recall your minivan by saying 'get minivan'}";
+			continue the action;
+	if the player is not in the Rocksboro:
+		continue the action.
+		
+Instead of going inside:
+	if the player is in the minivan:
+		instead say "Cars aren't allowed inside.";
+	if the player is not in the small car:
+		continue the action.
+	
+[Blodgett Mills] [------------------------------------------------------]
+
+Blodgett Mills is north of Rocksboro. South of Blodgett Mills is Cambridge. "[if unvisited]You move to upstate New York (again!), this time to a small town called Blodgett Mills. [else]You are in Blodgett Mills. [end if]The kids attend nearby McGraw Elementary school in Cortland. The boys (Andrew, Paul, and Adam) all play soccer while Beth plays some volleyball and a lot of piano.[if the referee has the golden soccerball]
+
+One day you happen to be passing a soccer field with a competition going on - a challenge to see who can hit the most shots into a small goal. Andrew wants to enter the competition, do you want to compete or keep going (to the south)?[else]
+
+You can continue on your way to the south.[end if]
+
+{hint: magic word 'crawfish' will bring you back to this location}".
+
+Understand "crawfish" as saying crawfish.
+
+Saying crawfish is an action applying to nothing.
+
+Check saying crawfish:
+	if Adam is green:
+		now the player is in the Blodgett Mills;
+	else:
+		say "That word doesn't work here."
+
+Parker is a man in the Blodgett Mills.
+
+Karen is a woman in the Blodgett Mills.
+
+Spencer is a man in the Blodgett Mills. "[if Spencer is red]Spencer says, 'Barrett, do you want to check out my rock concert?'[end if]".
+
+Spencer has a color. Spencer is red.
+
+Competing is an action applying to nothing.
+
+Understand "play soccer", "yes", "enter the competition", "enter competition", "play", "compete", "yes compete", "competition", "enter" as competing.
+
+Check competing:
+	if the location is not the Blodgett Mills:
+		say "You can't do that here." instead.
+		
+Carry out competing:
+	say "Andrew enters the competition and hits each ball (slowly) into the small goals setup. Most of the other players kick hard and miss a few, but by the letter of the rules, Andrew is the winner! He proudly shows you the trophy, and the competition organizer hands you a golden soccerball (check your inventory to make sure that you have it!).";
+	now the player has the golden soccerball.
+
+Concerting is an action applying to nothing.
+
+Understand "check out rock concert", "concert", "ask Spencer about rock concert", "ask Spencer", "ask about concert", "ask Spencer about concert", "check out concert", "check out", "talk to Spencer", "speak to Spencer", "go to concert", "go check out concert" as concerting.
+
+Carry out concerting:
+	if the location is the Blodgett Mills:
+		if Spencer is red:
+			say "You take a quick trip with Spencer to check out his rock concert... the bass line is so intense you can feel it in your chest. Spencer hands you a golden bass guitar, 'Barrett, I want you to have this.' (check your inventory to be sure that you have it!)
+			
+			Before heading back to town, you ask him, 'Spencer, do you want to join me in my search for the treasure?' and he accepts! You both head back into town.";
+			now the player has the golden bass guitar;
+			now Spencer is green;
+		else:
+			say "The concert already happened!";
+			stop the action;
+	else:
+		say "You can't do that here.".
+		
+The golden bass guitar is a thing.
+
+The golden soccerball is a thing.
+
+Every turn when Spencer is green:
+	now Spencer is in the location.
+
+The referee is a man in the Blodgett Mills. The referee is holding the golden soccerball.
+
+[Cambridge] [------------------------------------------------------]
+
+Cambridge is south of Blodgett Mills. "You move to the Eastern shore of Maryland, across the Chesapeake Bay from big cities like Baltimore and Washington DC. In Cambridge, people enjoy spending time on the Choptank River, crabbing, boating, even jet skiing.
+
+At this point, you are considering retirement to South Carolina, but you feel like you might need a new skillset in order to move there... what should it be? Computers? Juggling? Hospital Management?"
+
+Jim is a man in the Cambridge.
+
+Janice is a woman in the Cambridge.
+
+Larry is a man in the Cambridge. "[if Larry is red]Larry says, 'Barrett, let me tell you about the time I flew an airplane... and about the time I was a waterman... and about the time I performed a citizen's arrest of a police officer...'[end if]".
+
+Larry has a color. Larry is red.
+
+Larrying is an action applying to nothing.
+
+Understand "speak to Larry", "say hi to Larry", "listen to Larry", "Larry", "talk to Larry" as Larrying.
+
+Carry out Larrying:
+	if the location is the Cambridge:
+		if Larry is red:
+			say "You listen to Larry for awhile and become convinced that his life has contained even more adventures than your own! But something is still missing... you ask him, 'Larry, would you like to join me in my search for the treasure?' and he accepts! Larry also offers you a bowl of Maryland crab soup which you gladly accept.";
+			now the player has the Maryland crab soup;
+			now Larry is green;
+		else:
+			say "You and Larry have already chatted quite a bit!";
+			stop the action;
+	else:
+		say "You can't do that here.".
+
+Juggling is an action applying to nothing.
+
+Maryland crab soup is an edible thing.
+
+Understand "juggling", "juggle", "try juggling" as juggling.
+
+Carry out juggling:
+	say "'Your brother John is pleased! But that skillset is not in great demand where you're headed.'"
+	
+Hospitaling is an action applying to nothing.
+
+Understand "hospital management", "hospital", "hospitals", "try hospital management", "management" as hospitaling.
+
+Carry out hospitaling:
+	say "'Your brother Mark is pleased! But that skillset is not in great demand where you're headed.'"
+
+Computering is an action applying to nothing.
+
+Understand "computers", "try computers", "computing", "computer" as computering.
+
+Carry out computering:
+	if the referee is holding the golden soccerball:
+		say "Before you can do that, you're missing something you need from Blodgett Mills!" instead;
+	if the location is the Cambridge:
+		say "That skillset should serve you well! You've been a computer hobbyist for awhile after all, and with some training, you could really make that hobby into a career.
+		
+		After passing your certification course, you receive the prize: a golden keyboard!
+		(check your inventory to make sure that you have it)";
+		now the player has the golden keyboard;
+		now the player is in the Columbia;
+		stop the action.
+		
+The golden keyboard is a thing.
+
+The computer technician is a man. The computer technician is holding the golden keyboard.
+
+Every turn when Larry is green:
+	now Larry is in the location.
+
+Test cambridge with "test lab / south / north / exit / get in minivan / north / play soccer / concert / south / juggling / hospitals / talk to Larry / computers".
+
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[Level 5 - South Carolina]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+[//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
+
+Chapter 5 - Retired Life
+
+[Columbia] [------------------------------------------------------]
+
+Columbia is a room. "Columbia SC is your new home! You managed to get a job at the University working with computers (good choice).
+
+From here you can go several directions: west will take you to Greensboro, east will take you to Lugoff, south will take you to the bank."
+
+[Lugoff] [------------------------------------------------------]
+
+Lugoff is east of Columbia. "You visit Lugoff. This is where your new house is, complete with a fireplace and screened-in-porch!"
+
+The dining table is in the Lugoff.
+
+A notepad is a thing. The notepad is on the dining table.
+
+Noting is an action applying to nothing.
+
+Understand "read note", "take note", "look at note", "pick up note", "note", "take notepad", "notepad", "read notepad", "pick up notepad" as noting.
+
+Check noting:
+	if the location is the Lugoff:
+		continue the action;
+	else:
+		say "You can't do that here.";
+		stop the action.
+		
+Carry out noting:
+	say "You pick up the note and read it. It is a record of the things Granny M wanted you to know in the last days when you were together. Jean wrote them down for you. One in particular sticks out: 'I'm ready to go home.' You shed a sad/happy tear as you remember how excited she was to find the real treasure.
+	
+	The note ends with this cryptic comment: '{hint: go west}'".
+
+Instead of taking the notepad:
+	say "You pick up the note and read it. It is a record of the things Granny M wanted you to know in the last days when you were together. Jean wrote them down for you. One in particular sticks out: 'I'm ready to go home.' You shed a sad/happy tear as you remember how excited she was to find the real treasure.
+	
+	The note ends with this cryptic comment: '{hint: go west}'".
+
+[Bank] [------------------------------------------------------]
+
+Bank is south of Columbia. "You are in a bank. The floor is marble, the teller's station is wood, and everything about the place says 'Money!'."
+
+Bank teller is a man in the bank. The bank teller has a color. The bank teller is red.
+
+Banking is an action applying to nothing.
+
+Understand "speak to teller", "speak to bank teller", "ask bank teller for a loan", "ask for loan", "ask teller", "say to teller", "bank", "banking" as banking.
+
+Check banking:
+	if the location is the bank:
+		continue the action;
+	else:
+		say "You can't do that here.";
+		stop the action.
+		
+Carry out banking:
+	say "The teller says, 'Would you like to open a savings account or take out a loan?' {say 'loan' or 'savings'}".
+
+Saving is an action applying to nothing.
+
+Understand "savings" as saving.
+
+Loaning is an action applying to nothing.
+
+Understand "loan" as loaning.
+
+Check loaning:
+	if the location is the bank:
+		continue the action;
+	else:
+		say "You can't do that here.";
+		stop the action.
+		
+Check saving:
+	if the location is the bank:
+		continue the action;
+	else:
+		say "You can't do that here.";
+		stop the action.
+
+Carry out loaning:	
+	say "The teller says, 'Well that is a sizeable loan indeed! Let's see what you have for payment...'";
+	if the player has the golden newspaper:
+		if the player has the golden dish:
+			if the player has the golden paddle:
+				if the player has the golden tiger paw:
+					if the player has the golden bass guitar:
+						if the player has the golden soccerball:
+							if the player has the golden keyboard:
+								say "'It looks like you've got just enough! I'll take your golden newspaper, golden dish, golden paddle, golden tiger paw, golden soccerball, golden bass guitar, and golden keyboard. Here's the deed to the field.[if the player has the maryland crab soup]
+								
+								You can eat the soup.[end if]'";
+								now the bank teller has the golden newspaper;
+								now the bank teller has the golden dish;
+								now the bank teller has the golden paddle;
+								now the bank teller has the golden tiger paw;
+								now the bank teller has the golden soccerball;
+								now the bank teller has the golden keyboard;
+								now the bank teller has the golden bass guitar;
+								now the player has the property deed;
+							else:
+								say "You don't have quite enough... you should revisit Cambridge (say 'crawfish').";
+						else:
+							say "You don't have quite enough... you should revisit the Blodgett Mills (say 'crawfish').";
+					else:
+						say "You don't have quite enough... you should revisit the Blodgett Mills (say 'crawfish').";
+				else:
+					say "You don't have quite enough... you should revisit the Library at Clemson (say 'abccb').";
+			else:
+				say "You don't have quite enough... you should revisit your house in Camden (say 'xyzzy').";
+		else:
+			say "You don't have quite enough... you should revisit your house in Camden (say 'xyzzy').";
+	else:
+		say "You don't have quite enough... you should revisit the newspaper office in Camden (say 'xyzzy').".
+	
+Carry out saving:
+	say "The teller says, 'Before you do that, maybe you should head out west to see if there's any property that interests you.'"
+							
+Property deed is a thing. The bank teller is holding the property deed.
+		
+[Greensboro] [------------------------------------------------------]
+
+Greensboro is west of Columbia. "You travel west to Greensboro. You love this area because it reminds you of your days at Clemson and visiting Jean's parents when you were young! A lot of family members live in this area too.
+
+There is a trail that continues into the mountains to the west."
+
+[Mountains] [------------------------------------------------------]
+
+Mountains is west of Greensboro. "As you hike along the trail, you go further and further up into the mountains. The air is cool and crisp up here! And you can see out down into the nearby towns from the crests of the mountains.
+
+There is an opening in the trees, and you see a small grassy field inside."
+
+Instead of going inside:
+	if the location is the mountains:
+		if the player does not have the property deed:
+			say "It looks like the field is private property." instead;
+		else:
+			continue the action;
+	else:
+		continue the action.
+
+[A Field] [------------------------------------------------------]
+
+A Field is inside from the Mountains. "The field is full of grass and is actually a bit muddy, but then again you like mud! That's a good thing since you just spent every penny you own to buy this field.
+
+There's something glimmering in the middle of the field - could it be the treasure you've been seeking all along???"
+
+The treasure is a thing in the field.
+
+After taking the treasure:
+	say "Congratulations, you've found the greatest treasure!
+	
+	'The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and then in his joy went and sold all he had and bought that field.
+	
+	'Again, the kingdom of heaven is like a merchant looking for fine pearls. When he found one of great value, he went away and sold everything he had and bought it.'
+	
+	Excellent job, treasure hunter. You've persevered through many ups and downs, found many things of value, but all of it pales in comparison to the one, greatest treasure of all. It is truly a prize worth seeking!
+	
+	THE END.";
+	end the story.
+
+Test columbia with "test cambridge / east / read note / west / west / inside / east / south / ask teller / savings / loan / north / west / west / inside / take treasure".
