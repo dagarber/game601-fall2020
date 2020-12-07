@@ -121,7 +121,9 @@ Camden is outside from the dining room.
 
 [Kitchen] [------------------------------------------------------]
 
-The Kitchen is east from the Dining Room. "Granny M has started washing the dishes in the left side of the sink, leaving a space for you over on the right to dry them."
+The Kitchen is east from the Dining Room. "[if Granny M is holding the note]Granny M has started washing the dishes in the left side of the sink, leaving a space for you over on the right to dry them.[else]The dishes have been washed, dried, and put away! Granny M is smiling happily.[end if]
+
+The dining room and the rest of the house is back to the west."
 
 Dry dishes is an action applying to nothing.
 
@@ -141,7 +143,7 @@ That reminds me, I was just speaking with the Guidance Counselor the other day. 
 
 Granny M is a woman in the Kitchen.
 
-The note is an object.
+The note is an object. Granny M is holding the note.
 
 Camden is outside from the kitchen.
 
@@ -153,16 +155,18 @@ Gramps is a man in the woodshed.
 
 Hammering is an action applying to nothing.
 
-Understand "hammer", "hammer nail" as hammering.
+Understand "hammer", "hammer nail", "hammer the nail" as hammering.
 
 Check hammering:
 	if the player is not in the Woodshed:
 		do nothing instead.
 	
 Carry out hammering:
-	say "With the hammer you brought from the Dupont Factory, you proudly hammer in the last nail. 'Good work!', Gramps responds. 'Can you also run over to the corner store and buy some milk for dinner? I forgot to pick it up when I was out earlier.'
+	say "With the hammer you brought from the Dupont Factory, you proudly hammer in the last nail. 'Good work!', Gramps responds. You hand him the hammer. [if the dining room is unvisited]
 	
-	By the way, you can use 'XYZZY' to get back here anytime!";
+	'Can you also run over to the corner store and buy some milk for dinner? I forgot to pick it up when I was out earlier.'[else]'I've been meaning to talk to you about your major... I think it might be a good idea for you to major in Physics. If you head over to the Admissions Office (to the east), I think there's a good chance you could get into Clemson!'[end if]
+	
+	{By the way, you can use 'XYZZY' to get back here anytime}";
 	now gramps has the hammer.
 
 Teleporting is an action applying to nothing.
@@ -184,7 +188,9 @@ Test hammer with "south / west / west / inside / push / outside / east / east/ n
 
 [Street] [------------------------------------------------------]
 
-Street is west of Camden. Street is east of Camden. "You are standing on the sidewalk by the street. Cars whiz by. [if unvisited]A boy on bike tosses a newspaper that hits you and then lands on the sidewalk. He pedals off across the street to the South and you think about following him, although there are a lot of cars on the road today. [else]You can cross the street to the south, or follow it east or west.[end if]
+Street is west of Camden. Street is east of Camden. "You are standing on the sidewalk by the street. Cars whiz by. [if unvisited]A boy on bike tosses a newspaper that hits you and then lands on the sidewalk. He pedals off across the street to the South and you think about following him, although there are a lot of cars on the road today. [end if]
+
+You can cross the street to the south, or follow it east or west.
 
 Your house is north." Camden is north of Street.
 
@@ -419,7 +425,7 @@ Test milk with "south / east / inside / buy milk / outside / west / north / insi
 
 [Admissions Office] [------------------------------------------------------]
 
-Admissions Office is east of Corner Store. "As you go further east along the street, you see the Admissions Office. This is where the school guidance counselors can help with your college application. The street dead-ends up ahead."
+Admissions Office is east of Corner Store. "As you go further east along the street, you see the Admissions Office. This is where the school guidance counselors can help with your college application. The street dead-ends up ahead to the east."
 
 [Office] [------------------------------------------------------]
 
@@ -498,6 +504,12 @@ Check asking:
 Carry out asking:
 	say "The professor turns to look at you. 'A freshman interested in physics! Son, you're off to a great start. Now read the first 400 pages and then come back here.' He hands you a textbook.";
 	now the player has the textbook.
+	
+Instead of going outside:
+	if the location is the Physics Building:
+		now the location is the Clemson;
+	else:
+		continue the action.
 
 A professor is a man in the Physics Building.
 
@@ -509,6 +521,12 @@ Student Union is south of Clemson. "You enter the student union. There are a bun
 
 The rest of campus is back out the front doors to the north."
 
+Instead of going outside:
+	if the location is the Student Union:
+		now the location is the Clemson;
+	else:
+		continue the action.
+
 [Campus Ministry] [------------------------------------------------------]
 
 Campus Ministry is inside from the Student Union. "Inside the meeting room is a group of students, clapping and singing a song. It sounds like it might be a game with duck noises, followed by another song, 'Father Abraham.' You find it amusing although you're not quite sure about the songs. A preacher gets up and gives a message, and there are snacks afterward. [if Jean is red]At the snack table you bump into a girl named Jean. She seems like she might be waiting for you to ask something...[end if][if Jean is green]You and Jean hang out together at the snack table. You brought some chili-cheese-aplenties with you from the Beacon to share with everyone![end if]".
@@ -517,7 +535,7 @@ Jean is a woman in the Campus Ministry.
 
 Dating is an action applying to nothing.
 
-Understand "ask Jean on a date", "date", "ask for a date", "ask about dating", "ask Jean to go on a date", "do you want to go on a date" as dating.
+Understand "ask Jean on a date", "date", "ask for a date", "ask about dating", "ask Jean to go on a date", "do you want to go on a date", "say hi to Jean", "say hi", "talk to Jean", "ask Jean", "say something to Jean", "ask Jean on date" as dating.
 
 Check dating:
 	if the player is not in the Campus Ministry:
@@ -592,13 +610,19 @@ Carry out returning:
 				
 				'Why thank you for returning these! Not everyone brings back the books they borrow. There's actually a place I'd like you to see, it might help you along your way.'
 				
-				She hands you a golden tiger paw (check your inventory to make sure that you have it!) and shows you a secret room in the back part of the library building. 'If you have the golden tiger paw with you, you'll be able to get into this study room.'";
-				now the player is in the secret study room;
+				She hands you a golden tiger paw (check your inventory to make sure that you have it!) and shows you a secret room in the back part of the library building.
+				
+				'If you have the golden tiger paw with you, you'll be able to get into this secret study room (inside).'";
 				stop the action;
+			else:
+				say "It looks like you are one book short.";
+				stop the action;
+		else:
+			say "It looks like you are one book short.";
+			stop the action;
 	if the player is not in the library:
 		do nothing;
-		stop the action;
-	say "It looks like you are one book short.'"
+		stop the action.
 
 Before going east:
 	if the player is in the Clemson:
@@ -609,6 +633,12 @@ Before going inside:
 	if the player is in the Library:
 		if the player does not have the golden tiger paw:
 			say "You can't go that way without the golden tiger paw." instead.
+			
+Instead of going outside:
+	if the location is the Library:
+		now the location is the Clemson;
+	else:
+		continue the action.
 			
 [Secret Study Room] [------------------------------------------------------]
 
@@ -628,7 +658,7 @@ Check saying abccb:
 	if the librarian does not have the codebook:
 		say "That word doesn't work here."
 
-Test clemson with "test all / south / inside / date / get in car / east / west / north / ask question / south / east / give textbook / outside / west / east / inside / north / south / abccb".
+Test clemson with "test all / south / inside / date / get in car / east / west / north / ask question / south / east / give textbook / inside / outside / west / east / inside / north / south / abccb".
 
 [//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
 [//////////////////////////////////////////////////////////////////////////////////////////////////////////////]
@@ -647,6 +677,16 @@ Your car is parked nearby. {note: you can always recall the car by saying 'get c
 Since you're wearing the night vision goggles, you notice a tunnel entrance that you'd never seen before, just under the steps of the Lincoln Memorial...[end if][if the golden coins are green] but the door to the tunnel appears to be locked shut.[end if]".
 
 A small car is a vehicle in the Washington DC.
+
+CarExiting is an action applying to nothing.
+
+Understand "get out of car", "get out of vehicle", "get out", "leave car", "leave vehicle", "get out of minivan", "leave minivan" as carexiting.
+
+Carry out carexiting:
+	if the player is in the small car:
+		now the player is in the location;
+	if the player is in the minivan:
+		now the player is in the location.
 
 Every turn when the player is in the small car:
 	now the small car is high;
@@ -847,50 +887,54 @@ Government Lab is south of George Mason. Government Lab is east of the Hospital.
 Every turn when the player is in the Government Lab:
 	say "There appears to be some kind of undisclosed location inside of the laboratory...".
 
+Every turn when the location is the Government Lab:	
+	if the location is the Government Lab for the third time:
+		say "{try going inside!}".
+
 [Undisclosed Location] [------------------------------------------------------]
 
-Undisclosed Location is inside from Government Lab. "[if unvisited]You head inside the laboratory. [end if]All kinds of high-tech equipment is littered around the room.[if the bannana is red] In one corner you see a Senior Scientist pouring liquid nitrogen from a large tank into a paper cup. He beckons you closer.
+Undisclosed Location is inside from Government Lab. "[if unvisited]You head inside the laboratory. [end if]All kinds of high-tech equipment is littered around the room.[if the banana is red] In one corner you see a Senior Scientist pouring liquid nitrogen from a large tank into a paper cup. He beckons you closer.
 
-'See this cup? Try putting the bannana inside and see what happens.'[end if]"
+'See this cup? Try putting the banana inside and see what happens.'[end if]"
 
 The Senior Scientist is a man in the Undisclosed Location.
 
-A lab desk is in the undisclosed location. On the lab desk is a bannana.
+A lab desk is in the undisclosed location. On the lab desk is a banana.
 
-[The bannana is a thing on the lab desk in the undisclosed location.] The bannana has a color. The bannana is red.
+[The banana is a thing on the lab desk in the undisclosed location.] The banana has a color. The banana is red.
 
 The liquid nitrogen cup is a fixed in place open container on the lab desk.
 
 Nightvision goggles are a wearable thing on the lab desk.
 
-Every turn when the bannana is in the liquid nitrogen cup:
-	if the bannana is red:
+Every turn when the banana is in the liquid nitrogen cup:
+	if the banana is red:
 		if the player is in the undisclosed location:
-			say "The bannana instantly freezes solid upon touching the liquid nitrogen in the cup.
+			say "The banana instantly freezes solid upon touching the liquid nitrogen in the cup.
 			
 			'Pretty cool, right?' says the Senior Scientist. 'Make sure not to dip your finger in there.'
 			
 			'I heard you're thinking of pursuing a new career path in ministry. Honestly I think it's the rigth fit for you... I'm not supposed to do this, but why don't you put on these night vision goggles? They might help you find what you're looking for {hint: up north}.'";
-			now the bannana is green;
+			now the banana is green;
 			now the player is wearing the nightvision goggles;
 	else:
 		continue the action.
 
 Instead of taking the nightvision goggles:
-	if the bannana is red:
+	if the banana is red:
 		say "Those don't belong to you." instead;
 	else:
 		continue the action.
 		
 Instead of wearing the nightvision goggles:
-	if the bannana is red:
+	if the banana is red:
 		say "Those don't belong to you." instead;
 	else:
 		continue the action.
 		
-Test lab with "test clemson / north / west / get in car / west / north / east / west / south / inside / exit / inside / take goggles / take bannana / put bannana in cup / inventory / look / outside / get in car / west / north / north".
+Test lab with "test clemson / north / west / get in car / west / north / east / west / south / inside / exit / inside / take goggles / take banana / put banana in cup / inventory / look / outside / get in car / west / north / north".
 
-Test trap with "test clemson / north / west / get in car / west / north / east / west / south / inside / exit / inside / take goggles / take bannana / put bannana in cup / inventory / look / outside / get in car / west / east / exit / inside / take coins / outside".
+Test trap with "test clemson / north / west / get in car / west / north / east / west / south / inside / exit / inside / take goggles / take banana / put banana in cup / inventory / look / outside / get in car / west / east / exit / inside / take coins / outside".
 
 [Vehicle shortcuts] [------------------------------------------------------]
 
@@ -988,7 +1032,7 @@ Instead of going inside:
 
 Blodgett Mills is north of Rocksboro. South of Blodgett Mills is Cambridge. "[if unvisited]You move to upstate New York (again!), this time to a small town called Blodgett Mills. [else]You are in Blodgett Mills. [end if]The kids attend nearby McGraw Elementary school in Cortland. The boys (Andrew, Paul, and Adam) all play soccer while Beth plays some volleyball and a lot of piano.[if the referee has the golden soccerball]
 
-One day you happen to be passing a soccer field with a competition going on - a challenge to see who can hit the most shots into a small goal. Andrew wants to enter the competition, do you want to compete or keep going (to the south)?[else]
+One day you happen to be passing a soccer field with a tournament going on - a challenge to see who can hit the most shots into a small goal. Andrew wants to enter the tournament, do you want to compete or keep going (to the south)?[else]
 
 You can continue on your way to the south.[end if]
 
@@ -1014,7 +1058,7 @@ Spencer has a color. Spencer is red.
 
 Competing is an action applying to nothing.
 
-Understand "play soccer", "yes", "enter the competition", "enter competition", "play", "compete", "yes compete", "competition", "enter" as competing.
+Understand "play soccer", "yes", "enter the competition", "enter competition", "play", "compete", "yes compete", "competition", "enter", "compete in tournament", "enter tournament", "tournament", "soccer", "try soccer" as competing.
 
 Check competing:
 	if the location is not the Blodgett Mills:
@@ -1026,7 +1070,7 @@ Carry out competing:
 
 Concerting is an action applying to nothing.
 
-Understand "check out rock concert", "concert", "ask Spencer about rock concert", "ask Spencer", "ask about concert", "ask Spencer about concert", "check out concert", "check out", "talk to Spencer", "speak to Spencer", "go to concert", "go check out concert" as concerting.
+Understand "check out rock concert", "concert", "ask Spencer about rock concert", "ask Spencer", "ask about concert", "ask Spencer about concert", "check out concert", "check out", "talk to Spencer", "speak to Spencer", "go to concert", "go check out concert", "go to rock concert" as concerting.
 
 Carry out concerting:
 	if the location is the Blodgett Mills:
@@ -1158,7 +1202,7 @@ Check noting:
 Carry out noting:
 	say "You pick up the note and read it. It is a record of the things Granny M wanted you to know in the last days when you were together. Jean wrote them down for you. One in particular sticks out: 'I'm ready to go home.' You shed a sad/happy tear as you remember how excited she was to find the real treasure.
 	
-	The note ends with this cryptic comment: '{hint: go west}'".
+	The note ends with this cryptic comment: 'hint: go west'".
 
 Instead of taking the notepad:
 	say "You pick up the note and read it. It is a record of the things Granny M wanted you to know in the last days when you were together. Jean wrote them down for you. One in particular sticks out: 'I'm ready to go home.' You shed a sad/happy tear as you remember how excited she was to find the real treasure.
@@ -1216,9 +1260,9 @@ Carry out loaning:
 					if the player has the golden bass guitar:
 						if the player has the golden soccerball:
 							if the player has the golden keyboard:
-								say "'It looks like you've got just enough! I'll take your golden newspaper, golden dish, golden paddle, golden tiger paw, golden soccerball, golden bass guitar, and golden keyboard. Here's the deed to the field.[if the player has the maryland crab soup]
+								say "'It looks like you've got just enough! I'll take your golden newspaper, golden dish, golden paddle, golden tiger paw, golden soccerball, golden bass guitar, and golden keyboard. Here's the deed to the field.'[if the player has the maryland crab soup]
 								
-								You can eat the soup.[end if]'";
+								'You can eat the soup.'[end if]";
 								now the bank teller has the golden newspaper;
 								now the bank teller has the golden dish;
 								now the bank teller has the golden paddle;
@@ -1246,6 +1290,12 @@ Carry out saving:
 	say "The teller says, 'Before you do that, maybe you should head out west to see if there's any property that interests you.'"
 							
 Property deed is a thing. The bank teller is holding the property deed.
+
+Instead of going outside:
+	if the location is the bank:
+		now the location is the Columbia;
+	else:
+		continue the action.
 		
 [Greensboro] [------------------------------------------------------]
 
@@ -1289,3 +1339,5 @@ After taking the treasure:
 	end the story.
 
 Test columbia with "test cambridge / east / read note / west / west / inside / east / south / ask teller / savings / loan / north / west / west / inside / take treasure".
+
+Test treasure with "test cambridge / east / read note / west / west / inside / east / south / ask teller / savings / loan / north / west / west / inside / take treasure".
