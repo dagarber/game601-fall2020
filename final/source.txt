@@ -151,7 +151,7 @@ Camden is outside from the kitchen.
 
 The Woodshed is north of the House. "[if unvisited]You exit the house out of the backdoor to the north, and go into the woodshed in the backyard.[else]You are in the woodshed in the backyard of the house.[end if] [if gramps does not have the hammer]Gramps is here, hammering away at some nails! He turns and gives you a quick look, 'can you give me a hand with that last nail?'[end if]
 
-You can head back into the house by going inside".
+You can head back into the house by going inside.".
 
 Gramps is a man in the woodshed.
 
@@ -1334,6 +1334,8 @@ After taking the treasure:
 	'The kingdom of heaven is like treasure hidden in a field. When a man found it, he hid it again, and then in his joy went and sold all he had and bought that field.
 	
 	'Again, the kingdom of heaven is like a merchant looking for fine pearls. When he found one of great value, he went away and sold everything he had and bought it.'
+	
+	Matthew 13:44-46 (NIV)
 	
 	Excellent job, treasure hunter. You've persevered through many ups and downs, found many things of value, but all of it pales in comparison to the one, greatest treasure of all. It is truly a prize worth seeking!
 	
