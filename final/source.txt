@@ -35,7 +35,7 @@ John is a person in Camden. Mark is a person in Camden.
 After taking the paddle:
 	say "John says, 'Would you like to play a game?'"
 	
-Understand "play", "yes", "play ping-pong" as playing.
+Understand "play", "yes", "play ping-pong", "play game" as playing.
 	
 Playing is an action applying to nothing.
 
