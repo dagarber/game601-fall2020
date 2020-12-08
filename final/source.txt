@@ -149,7 +149,9 @@ Camden is outside from the kitchen.
 
 [Woodshed] [------------------------------------------------------]
 
-The Woodshed is north of the House. "[if unvisited]You exit the house out of the backdoor to the north, and go into the woodshed in the backyard.[else]You are in the woodshed in the backyard of the house.[end if] [if gramps does not have the hammer]Gramps is here, hammering away at some nails! He turns and gives you a quick look, 'can you give me a hand with that last nail?'[end if]".
+The Woodshed is north of the House. "[if unvisited]You exit the house out of the backdoor to the north, and go into the woodshed in the backyard.[else]You are in the woodshed in the backyard of the house.[end if] [if gramps does not have the hammer]Gramps is here, hammering away at some nails! He turns and gives you a quick look, 'can you give me a hand with that last nail?'[end if]
+
+You can head back into the house by going inside".
 
 Gramps is a man in the woodshed.
 
@@ -507,7 +509,7 @@ Carry out asking:
 	
 Instead of going outside:
 	if the location is the Physics Building:
-		now the location is the Clemson;
+		now the player is in the Clemson;
 	else:
 		continue the action.
 
@@ -523,7 +525,7 @@ The rest of campus is back out the front doors to the north."
 
 Instead of going outside:
 	if the location is the Student Union:
-		now the location is the Clemson;
+		now the player is in the Clemson;
 	else:
 		continue the action.
 
@@ -636,7 +638,7 @@ Before going inside:
 			
 Instead of going outside:
 	if the location is the Library:
-		now the location is the Clemson;
+		now the player is in the Clemson;
 	else:
 		continue the action.
 			
@@ -1293,7 +1295,7 @@ Property deed is a thing. The bank teller is holding the property deed.
 
 Instead of going outside:
 	if the location is the bank:
-		now the location is the Columbia;
+		now the player is in the Columbia;
 	else:
 		continue the action.
 		
