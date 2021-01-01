@@ -87,7 +87,7 @@ Test ping-pong with "go inside / go outside / take paddle / play / eastern / inv
 
 The House is inside from the Camden. "[if unvisited]You are inside the house. You can smell the dinner that your mom is preparing... but its not quite ready yet. [else]You are inside the house. [end if][if player does not have the golden paddle]Don't you want to go back outside and play some ping-pong?[end if] [if player has the hammer]
 
-You hear a hammering sound coming from the woodshed out the backdoor to the north.[end if][if gramps has the hammer]The woodshed is through the backdoor to the north.[end if][if player has the milk] Dinner is ready now! You can hear Granny M setting the table in the dining room to the east. She calls to you, 'Can you bring the milk in with you, dear?'[end if][if Granny M has the milk] The dining room is to the east.[end if]"
+You hear a hammering sound coming from the woodshed out the backdoor to the north.[end if][if gramps has the hammer]The woodshed is through the backdoor to the north. You can leave the house by going outside.[end if][if player has the milk] Dinner is ready now! You can hear Granny M setting the table in the dining room to the east. She calls to you, 'Can you bring the milk in with you, dear?'[end if][if Granny M has the milk] The dining room is to the east. You can leave the house by going outside.[end if]"
 
 Before going north:
 	if the player is in the House:
@@ -695,7 +695,7 @@ Every turn when the player is in the small car:
 	if the small car is in the Washington DC:
 		say "Route 66 heads west out of the District. There are some signs for George Mason University in that direction.";
 	if the small car is in the George Mason:
-		say "You can continue around the 495 capital beltway to the north or south.";
+		say "You can continue around the 495 capital beltway to the north or south. The Tidal Basin is to the east.";
 	if the small car is in the Hospital:
 		say "You can continue around the Beltway to the east or west.";
 	if the small car is in the Government Lab:
@@ -1184,7 +1184,7 @@ From here you can go several directions: west will take you to Greensboro, east 
 
 [Lugoff] [------------------------------------------------------]
 
-Lugoff is east of Columbia. "You visit Lugoff. This is where your new house is, complete with a fireplace and screened-in-porch!"
+Lugoff is east of Columbia. "You visit Lugoff. This is where your new house is, complete with a fireplace and screened-in-porch! Columbia is back to the west."
 
 The dining table is in the Lugoff.
 
@@ -1204,7 +1204,7 @@ Check noting:
 Carry out noting:
 	say "You pick up the note and read it. It is a record of the things Granny M wanted you to know in the last days when you were together. Jean wrote them down for you. One in particular sticks out: 'I'm ready to go home.' You shed a sad/happy tear as you remember how excited she was to find the real treasure.
 	
-	The note ends with this cryptic comment: 'hint: go west'".
+	The note ends with this cryptic comment: '{hint: go west}'".
 
 Instead of taking the notepad:
 	say "You pick up the note and read it. It is a record of the things Granny M wanted you to know in the last days when you were together. Jean wrote them down for you. One in particular sticks out: 'I'm ready to go home.' You shed a sad/happy tear as you remember how excited she was to find the real treasure.
@@ -1213,13 +1213,13 @@ Instead of taking the notepad:
 
 [Bank] [------------------------------------------------------]
 
-Bank is south of Columbia. "You are in a bank. The floor is marble, the teller's station is wood, and everything about the place says 'Money!'."
+Bank is south of Columbia. "You are in a bank. The floor is marble, the teller's station is wood, and everything about the place says 'Money!'. The bank teller waits patiently for you to say something. Columbia is back to the north."
 
 Bank teller is a man in the bank. The bank teller has a color. The bank teller is red.
 
 Banking is an action applying to nothing.
 
-Understand "speak to teller", "speak to bank teller", "ask bank teller for a loan", "ask for loan", "ask teller", "say to teller", "bank", "banking" as banking.
+Understand "talk to teller", "ask teller", "talk to bank teller", "speak to teller", "speak to bank teller", "ask bank teller for a loan", "ask for loan", "ask teller", "say to teller", "bank", "banking" as banking.
 
 Check banking:
 	if the location is the bank:
@@ -1303,7 +1303,7 @@ Instead of going outside:
 
 Greensboro is west of Columbia. "You travel west to Greensboro. You love this area because it reminds you of your days at Clemson and visiting Jean's parents when you were young! A lot of family members live in this area too.
 
-There is a trail that continues into the mountains to the west."
+There is a trail that continues into the mountains to the west. Columbia is back to the east."
 
 [Mountains] [------------------------------------------------------]
 
