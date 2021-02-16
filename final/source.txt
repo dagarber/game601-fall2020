@@ -220,25 +220,37 @@ A bike is a rideable vehicle in the Other side of street.
 
 Instead of going north:
 	if the player has the newspaper stack:
-		instead say "The newspaper stack is too heavy to go any further.";
+		if the player is not on the bike:
+			instead say "The newspaper stack is too heavy to go any further.";
+		else:
+			continue the action;
 	if the player does not have the newspaper stack:
 		continue the action.
 		
 Instead of going east:
 	if the player has the newspaper stack:
-		instead say "The newspaper stack is too heavy to go any further.";
+		if the player is not on the bike:
+			instead say "The newspaper stack is too heavy to go any further.";
+		else:
+			continue the action;
 	if the player does not have the newspaper stack:
 		continue the action.
 		
 Instead of going south:
 	if the player has the newspaper stack:
-		instead say "The newspaper stack is too heavy to go any further.";
+		if the player is not on the bike:
+			instead say "The newspaper stack is too heavy to go any further.";
+		else:
+			continue the action;
 	if the player does not have the newspaper stack:
 		continue the action.
 		
 Instead of going west:
 	if the player has the newspaper stack:
-		instead say "The newspaper stack is too heavy to go any further.";
+		if the player is not on the bike:
+			instead say "The newspaper stack is too heavy to go any further.";
+		else:
+			continue the action;
 	if the player does not have the newspaper stack:
 		continue the action.
 
@@ -1213,11 +1225,13 @@ Instead of taking the notepad:
 
 [Bank] [------------------------------------------------------]
 
-Bank is south of Columbia. "You are in a bank. The floor is marble, the teller's station is wood, and everything about the place says 'Money!'. The bank teller waits patiently for you to say something. Columbia is back to the north."
+Bank is south of Columbia. "You are in a bank. The floor is marble, the teller's station is wood, and everything about the place says 'Money!'. The bank teller waits patiently for you to say something. Columbia is back to the north.
+
+The teller says, 'Would you like to open a savings account or take out a loan?' {say 'loan' or 'savings'}".
 
 Bank teller is a man in the bank. The bank teller has a color. The bank teller is red.
 
-Banking is an action applying to nothing.
+[Banking is an action applying to nothing.
 
 Understand "talk to teller", "ask teller", "talk to bank teller", "speak to teller", "speak to bank teller", "ask bank teller for a loan", "ask for loan", "ask teller", "say to teller", "bank", "banking" as banking.
 
@@ -1229,7 +1243,7 @@ Check banking:
 		stop the action.
 		
 Carry out banking:
-	say "The teller says, 'Would you like to open a savings account or take out a loan?' {say 'loan' or 'savings'}".
+	say "The teller says, 'Would you like to open a savings account or take out a loan?' {say 'loan' or 'savings'}".]
 
 Saving is an action applying to nothing.
 
