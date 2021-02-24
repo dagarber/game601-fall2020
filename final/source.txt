@@ -85,7 +85,7 @@ Test ping-pong with "go inside / go outside / take paddle / play / eastern / inv
 	
 [House] [------------------------------------------------------]
 
-The House is inside from the Camden. "[if unvisited]You are inside the house. You can smell the dinner that your mom is preparing... but its not quite ready yet. [else]You are inside the house. [end if][if player does not have the golden paddle]Don't you want to go back outside and play some ping-pong?[end if] [if player has the hammer]
+The House is inside from the Camden. "[if unvisited]You are inside the house. You can smell the dinner that your mom is preparing... [else]You are inside the house. [end if][if player does not have the golden paddle]Don't you want to go back outside and play some ping-pong?[end if] [if player has the hammer]
 
 You hear a hammering sound coming from the woodshed out the backdoor to the north.[end if][if gramps has the hammer]The woodshed is through the backdoor to the north. You can leave the house by going outside.[end if][if player has the milk] Dinner is ready now! You can hear Granny M setting the table in the dining room to the east. She calls to you, 'Can you bring the milk in with you, dear?'[end if][if Granny M has the milk] The dining room is to the east. You can leave the house by going outside.[end if]"
 
@@ -161,7 +161,9 @@ Understand "hammer", "hammer nail", "hammer the nail" as hammering.
 
 Check hammering:
 	if the player is not in the Woodshed:
-		do nothing instead.
+		do nothing instead;
+	if the player does not have the hammer:
+		say "You have nothing to hammer with." instead.
 	
 Carry out hammering:
 	say "With the hammer you brought from the Dupont Factory, you proudly hammer in the last nail. 'Good work!', Gramps responds. You hand him the hammer. [if the dining room is unvisited]
@@ -175,14 +177,17 @@ Teleporting is an action applying to nothing.
 
 Understand "XYZZY" as teleporting.
 
-Check teleporting:
+[Check teleporting:
 	if gramps has the hammer:
 		now the player is in the Woodshed;
 	if gramps does not have the hammer:
 		if the location is the bank:
 			now the player is in the Woodshed;
 		else:
-			say "That word doesn't work here."
+			say "That word doesn't work here."]
+
+Carry out teleporting:
+	now the player is in the Woodshed.
 
 The House is inside from the Woodshed.
 
@@ -666,11 +671,14 @@ Understand "ABCCB" as saying abccb.
 
 Saying abccb is an action applying to nothing.
 
-Check saying abccb:
+[Check saying abccb:
 	if the librarian has the codebook:
 		now the player is in the secret study room;
 	if the librarian does not have the codebook:
-		say "That word doesn't work here."
+		say "That word doesn't work here."]
+
+Carry out saying abccb:
+	now the player is in the secret study room.
 
 Test clemson with "test all / south / inside / date / get in car / east / west / north / ask question / south / east / give textbook / inside / outside / west / east / inside / north / south / abccb".
 
@@ -1056,11 +1064,14 @@ Understand "crawfish" as saying crawfish.
 
 Saying crawfish is an action applying to nothing.
 
-Check saying crawfish:
+[Check saying crawfish:
 	if Adam is green:
 		now the player is in the Blodgett Mills;
 	else:
-		say "That word doesn't work here."
+		say "That word doesn't work here."]
+		
+Carry out saying crawfish:
+	now the player is in the Blodgett Mills.
 
 Parker is a man in the Blodgett Mills.
 
