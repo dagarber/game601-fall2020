@@ -26,7 +26,12 @@ Camden is a room. "[if unvisited]Hello, Barrett! Today is an exciting day - the 
 
 The door to the house is open nearby.
 
-The street in front of the house runs from east to west."
+The street in front of the house runs from east to west.[if unvisited]
+
+HELPFUL TIPS:
+--Navigation: north, south, east, west, inside, outside
+--Actions: look, take (an object), get in (a vehicle), get on (a vehicle), inventory (see what you are carrying), etc.
+--Shorter commands tend to work best and at times the game is looking for wording that reflects what is in the room description or question prompt.[end if]".
 
 A ping-pong table is in the Camden. On it is a ping-pong paddle. 
 
